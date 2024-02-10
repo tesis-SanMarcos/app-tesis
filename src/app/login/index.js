@@ -1,13 +1,17 @@
-import { StyleSheet, View, Text, Image } from "react-native";
-import { Button } from "react-native-paper";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, Image, StatusBar } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { COLORS } from "../../shared/utils/constant";
+import WButon from "../../components/atoms/Buton/buton";
+import { Routes } from "../../shared/configuration/routes";
 
 export default function App() {
+  const navigateHook = useNavigation();
   return (
     <LinearGradient
       style={styles.container}
-      colors={[COLORS.primary, COLORS.secondary]}
+      colors={[COLORS.primaryOrange, COLORS.secondaryOrange]}
     >
       <View style={{ flex: 1 }}>
         <View>
@@ -37,21 +41,16 @@ export default function App() {
           >
             <Text style={styles.title}>Bienvenido a la Bodega Lucy</Text>
             <Text style={styles.subtitle}>
-              {" "}
-              Controla y gestion tu comercio de manera eficiente en esta
+              Controla y gestiona tu comercio de manera eficiente en esta
               plataforma virtual{" "}
             </Text>
-            <Button
-              mode="contained"
-              style={{
-                marginTop: 22,
-                height: 42,
-                backgroundColor: COLORS.black,
+            <WButon
+              onPress={() => {
+                navigateHook.navigate(Routes.Home);
               }}
-              labelStyle={{ fontSize: 19 }}
             >
               Ingresar
-            </Button>
+            </WButon>
           </View>
         </View>
       </View>
