@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../utils/constant";
 
 export const globalStyles = StyleSheet.create({
   flexRow: {
@@ -21,5 +22,13 @@ export const globalStyles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     marginBottom: 20,
+  },
+  fab: {
+    position: "absolute",
+    backgroundColor: COLORS.black,
+
+    margin: 16,
+    right: 0,
+    bottom: 0,
   },
 });
