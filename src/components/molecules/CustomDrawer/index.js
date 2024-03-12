@@ -31,13 +31,15 @@ const WCustomDrawer = (props) => {
             Lucila Perez Mariscal
           </Text>
         </ImageBackground>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigateHook.navigate(Routes.Home)}>
           <Text style={styles.itemList}>Inicio</Text>
         </TouchableOpacity>
         <TouchableOpacity>
           <Text style={styles.itemList}>Perfil</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigateHook.navigate(Routes?.Products)}
+        >
           <Text style={styles.itemList}>Productos</Text>
         </TouchableOpacity>
         <TouchableOpacity>

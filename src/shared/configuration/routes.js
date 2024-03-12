@@ -2,6 +2,7 @@ export const Routes = {
   Login: "/auth",
   Home: "Inicio",
   Finance: "/finance",
-  Products: "products",
+  Products: "/products",
   Inventory: "/inventory",
+  Scanner: "/Scanner"
 };

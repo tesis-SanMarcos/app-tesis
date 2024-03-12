@@ -3,11 +3,13 @@ import { StyleSheet, Text, View, ScrollView, Touchable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import WContainerCard from "../../components/hocs/container/containerHome";
-import { Card, FAB, Portal } from "react-native-paper";
+import { Card, FAB, Portal, Searchbar } from "react-native-paper";
 import { COLORS } from "../../shared/utils/constant";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { globalStyles } from "../../shared/configuration/global-styles";
+import Products from "../Products";
+import { Routes } from "../../shared/configuration/routes";
 
 export default function Home() {
   const routeHook = useRoute();
@@ -43,8 +45,6 @@ export default function Home() {
             />
           </TouchableOpacity>
         </Card>
-
-        <Text></Text>
       </WContainerCard>
 
       <FAB
@@ -53,7 +53,7 @@ export default function Home() {
           uri: "https://cdn-icons-png.flaticon.com/512/3396/3396176.png",
         }}
         style={globalStyles.fab}
-        onPress={() => console.log("dsda")}
+        onPress={() => navigateHook.navigate(Routes.Products)}
       />
     </>
   );

@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5, // Elevación para la sombra en Android
-    margin: 10,
-  },
+    marginLeft : 10 ,
+    marginRight : 8 ,
+    marginTop : 20,
+    marginBottom : 115
+},
 });

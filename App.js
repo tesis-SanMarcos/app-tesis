@@ -10,6 +10,8 @@ import { Routes } from './src/shared/configuration/routes';
 import { COLORS } from './src/shared/utils/constant';
 import { StatusBar, View } from 'react-native';
 import WCustomDrawer from './src/components/molecules/CustomDrawer';
+import Products from './src/app/Products';
+import WBarScanner from './src/components/molecules/BarScanner';
 
 
 const Stack = createNativeStackNavigator();
@@ -46,8 +48,10 @@ function App() {
                             tabBarShowLabel: false,
                         })}
                     >
-                        <Stack.Screen name={Routes.Login} component={Login} options={{ headerShown: false, headerBackVisible: false, title: "Hola, Lucila Perez" }} />
-                        <Stack.Screen name={Routes.Home} component={Home} options={{ headerShown: true, headerBackVisible: false }} />
+                        <Stack.Screen name={Routes.Login} component={Login} options={{ headerShown: false, headerBackVisible: false}} />
+                        <Stack.Screen name={Routes.Home} component={Home} options={{ headerShown: true, headerBackVisible: false , title: "Hola, Lucila Perez" }} />
+                        <Stack.Screen  name={Routes.Products} component={Products} options={{ headerShown : true , headerBackVisible : false , title : "Calculadora"}} />
+                        <Stack.Screen  name={Routes.Scanner} component={WBarScanner} options={{ headerShown : false , headerBackVisible : false , title : "Calculadora"}} />
                     </Drawer.Navigator>
                 </NavigationContainer>
 
