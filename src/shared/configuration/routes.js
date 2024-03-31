@@ -4,5 +4,5 @@ export const Routes = {
   Finance: "/finance",
   Products: "/products",
   Inventory: "/inventory",
-  Scanner: "/Scanner"
+  Scanner: "/Scanner",
 };
