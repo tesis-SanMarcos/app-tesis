@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
         "src/shared/assets/sound"
-    ]
+    ],
+    "editor.wordBasedSuggestions": "matchingDocuments"
 }

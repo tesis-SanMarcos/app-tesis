@@ -1,7 +1,7 @@
 export class Product {
   constructor(props) {
     this.id = props.id;
-    this.name = props.name;
+    this.name = props.title;
     this.img = props.img;
     this.dataExpired = props.dataExpired;
     this.price = props.price;
