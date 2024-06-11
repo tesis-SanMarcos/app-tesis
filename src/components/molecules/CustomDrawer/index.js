@@ -2,10 +2,12 @@ import React from "react";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { Image, ImageBackground, View, StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
-import { COLORS } from "../../../shared/utils/constant";
+import { clearAllStore } from "../../../data/Store/function";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { Routes } from "../../../shared/configuration/routes";
+import { COLORS } from "../../../shared/utils/constant";
+
 const WCustomDrawer = (props) => {
   const navigateHook = useNavigation();
   return (
@@ -19,7 +21,7 @@ const WCustomDrawer = (props) => {
           style={{ padding: 20 }}
         >
           <Image
-            source={require("./../../../shared/assets/icons/User.jpeg")}
+            source={require("./../../../shared/assets/icons/User.png")}
             style={{
               width: 70,
               height: 70,
@@ -50,8 +52,9 @@ const WCustomDrawer = (props) => {
         </TouchableOpacity>
       </DrawerContentScrollView>
       <TouchableOpacity
-        onPress={() => {
+        onPress={async () => {
           navigateHook.navigate(Routes.Login);
+          await clearAllStore();
         }}
       >
         <View

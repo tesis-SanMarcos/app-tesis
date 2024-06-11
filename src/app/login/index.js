@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Image, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { COLORS } from "../../shared/utils/constant";
+import ProductRepository from "../../domain/repositories/ProductRepository";
+import { setAllProducts } from "../../data/Store/function";
 import WButon from "../../components/atoms/Buton/buton";
 import { Routes } from "../../shared/configuration/routes";
+import { COLORS } from "../../shared/utils/constant";
 
 export default function App() {
   const navigateHook = useNavigation();
+
+  const productsCall = async () => {
+    const [dataProducts, error] = await ProductRepository.getProducts();
+    if (error) window.alert("Error en los productos");
+    if (dataProducts) setAllProducts(dataProducts);
+  };
+
   return (
     <LinearGradient
       style={styles.container}
@@ -45,8 +54,9 @@ export default function App() {
               plataforma virtual{" "}
             </Text>
             <WButon
-              onPress={() => {
+              onPress={async () => {
                 navigateHook.navigate(Routes.Home);
+                await productsCall();
               }}
             >
               Ingresar
