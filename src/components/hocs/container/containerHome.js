@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { StyleSheet, View } from "react-native";
 
 export default function WContainerCard({ children }) {
@@ -23,3 +24,7 @@ const styles = StyleSheet.create({
     marginBottom: 115,
   },
 });
+
+WContainerCard.propTypes  = {
+    children : PropTypes.array.isRequired
+}

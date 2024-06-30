@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native-paper";
 import { COLORS } from "../../../shared/utils/constant";
 const WButon = forwardRef(({ children, ...restProps }, ref) => {

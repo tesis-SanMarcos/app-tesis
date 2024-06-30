@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Alert, Image, StyleSheet, Text, TextInput, View } from "react-native";
+import React from "react";
+import PropTypes from 'prop-types';
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Button } from "react-native-paper";
 import { COLORS } from "../../../shared/utils/constant";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -21,7 +22,7 @@ const WNumInput = ({ value, onUpdateQuantity }) => {
     }
   };
 
-  const disabled = value <= 1 ? true : false;
+  const disabled = value <= 1;
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -90,3 +91,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+WNumInput.propTypes = {
+    onUpdateQuantity : PropTypes.func , 
+    value : PropTypes.any
+}

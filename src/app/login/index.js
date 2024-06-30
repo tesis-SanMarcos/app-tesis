@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Image, StatusBar } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import ProductRepository from "../../domain/repositories/ProductRepository";

@@ -1,10 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { StyleSheet, Text, View, ScrollView, Touchable } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { useRoute } from "@react-navigation/native";
+import React, { useEffect  } from "react";
+import { StyleSheet, Text } from "react-native";
+import { useNavigation , useRoute } from "@react-navigation/native";
 import WContainerCard from "../../components/hocs/container/containerHome";
-import { Card, FAB, Portal, Searchbar } from "react-native-paper";
-import { COLORS } from "../../shared/utils/constant";
+import { Card, FAB } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { globalStyles } from "../../shared/configuration/global-styles";
@@ -18,8 +16,7 @@ export default function Home() {
     console.log(url);
   }, []);
 
-  const navigateHook = useNavigation();
-  const [active, setActive] = useState(false);
+  const NavigateHook = useNavigation();
   return (
     <>
       <WContainerCard>
@@ -53,7 +50,7 @@ export default function Home() {
           uri: "https://cdn-icons-png.flaticon.com/512/3396/3396176.png",
         }}
         style={globalStyles.fab}
-        onPress={() => navigateHook.navigate(Routes.Products)}
+        onPress={() => NavigateHook.navigate(Routes.Products)}
       />
     </>
   );

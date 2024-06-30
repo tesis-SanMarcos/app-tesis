@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Alert, Image, StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { Button, FAB, Title } from "react-native-paper";
+import { Button, FAB } from "react-native-paper";
 import { globalStyles } from "../../shared/configuration/global-styles";
 import WContainerCard from "../../components/hocs/container/containerHome";
 import WProduct from "../../components/molecules/Product";
@@ -12,6 +12,7 @@ import { calculateTotalPrice } from "./constant";
 import { COLORS } from "../../shared/utils/constant";
 import { ScrollView } from "react-native-gesture-handler";
 import { getAllProducts } from "../../data/Store/function";
+import WProductEmpty from "../../components/organism/ProductEmpty/ProductEmpty";
 
 const Products = () => {
   const navigateHook = useNavigation();
@@ -21,15 +22,16 @@ const Products = () => {
   const [remove, setRemove] = useState(0);
   const { type, data: scannedData } = route.params || {}; // scanner
 
-  const products = useMemo(() => {
+  const products = useMemo( async () => {
     try {
       let data = [];
-      data = getAllProducts();
+      data = await getAllProducts();
       return data;
     } catch (e) {
       console.log("error al cargar la información");
     }
   }, []);
+  
   const handleRemoveCart = (productId) => {
     console.log("🚀 ~ handleRemoveCart ~ productId:", productId);
     setRemove(false);
@@ -89,21 +91,19 @@ const Products = () => {
     setTotalPrice(result);
   }, [cart, remove]);
 
-  const WProductEmpty = () => {
-    return (
-      <>
-        <Title style={styles.paragraph}>No hay productos en el carrito </Title>
-        <Image
-          style={{ margin: "20 20 20 20 " }}
-          width={300}
-          height={400}
-          source={{
-            uri: "https://as1.ftcdn.net/v2/jpg/05/14/61/82/1000_F_514618293_GgvEoDKWmkXoPMIU7J83quovVGY1HsLa.jpg",
-          }}
-        />
-      </>
-    );
-  };
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getAllProducts(); // Assuming this returns a promise
+        setProducts(data);
+      } catch (e) {
+        setError(e);
+        console.log("Error loading information", e);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <>
@@ -111,7 +111,7 @@ const Products = () => {
         <ScrollView>
           {cart?.map((prd) => (
             <WProduct
-              key={prd?.item}
+              key={prd?.id}
               img={prd?.img}
               titleProduct={prd?.title}
               subtitle={prd?.slug}
@@ -124,7 +124,7 @@ const Products = () => {
           ))}
         </ScrollView>
         {cart?.length <= 0 ? (
-          <WProductEmpty />
+          <WProductEmpty message="No hay productos en el carrito"/>
         ) : (
           <>
             <Button

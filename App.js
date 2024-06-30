@@ -18,9 +18,6 @@ const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 function App() {
     const navigationRef = useRef()
-    const [state, setState] = useState({ open: false });
-    const onStateChange = ({ open }) => setState({ open });
-    const { open } = state;
     return (
 
         <>
