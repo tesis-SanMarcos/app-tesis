@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import {  Card } from "react-native-paper";
-import { COLORS } from "../../../shared/utils/constant";
+import { COLORS } from "../../../shared/utils/colors/constant.js"
 import WNumInput from "../NumericInput";
 
 const WProduct = ({

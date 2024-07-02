@@ -6,7 +6,7 @@ import { clearAllStore } from "../../../data/Store/function";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { Routes } from "../../../shared/configuration/routes";
-import { COLORS } from "../../../shared/utils/constant";
+import { COLORS } from "../../../shared/utils/colors/constant.js"
 
 const WCustomDrawer = (props) => {
   const navigateHook = useNavigation();

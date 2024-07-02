@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-native-paper";
-import { COLORS } from "../../../shared/utils/constant";
+import { COLORS } from "../../../shared/utils/colors/constant.js"
 const WButon = forwardRef(({ children, ...restProps }, ref) => {
   return (
     <Button

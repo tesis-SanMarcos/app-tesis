@@ -13,7 +13,6 @@ export default function Home() {
   const routeHook = useRoute();
   useEffect(() => {
     const url = routeHook.name;
-    console.log(url);
   }, []);
 
   const NavigateHook = useNavigation();

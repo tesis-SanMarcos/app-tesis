@@ -5,11 +5,10 @@ import { Button, FAB } from "react-native-paper";
 import { globalStyles } from "../../shared/configuration/global-styles";
 import WContainerCard from "../../components/hocs/container/containerHome";
 import WProduct from "../../components/molecules/Product";
-import dataProduct from "../../data/dataFake/products";
 import { Routes } from "../../shared/configuration/routes";
 import { removeById } from "../../shared/utils/function";
 import { calculateTotalPrice } from "./constant";
-import { COLORS } from "../../shared/utils/constant";
+import { COLORS } from "../../shared/utils/colors/constant.js"
 import { ScrollView } from "react-native-gesture-handler";
 import { getAllProducts } from "../../data/Store/function";
 import WProductEmpty from "../../components/organism/ProductEmpty/ProductEmpty";
@@ -28,7 +27,7 @@ const Products = () => {
       data = await getAllProducts();
       return data;
     } catch (e) {
-      console.log("error al cargar la información");
+      console.error("error al cargar la información");
     }
   }, []);
   
@@ -64,6 +63,8 @@ const Products = () => {
   useEffect(() => {
     let initial_quantity_product = 1;
     const dataProducts = products ? products._j : [];
+    console.log("🚀 ~ useEffect ~ products:", products)
+    console.log("🚀 ~ useEffect ~ dataProducts:", dataProducts)
     if (Array.isArray(dataProducts)) {
       const filteredProducts = dataProducts.filter(
         (prd) => prd.code.toString() === scannedData,
@@ -91,19 +92,7 @@ const Products = () => {
     setTotalPrice(result);
   }, [cart, remove]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await getAllProducts(); // Assuming this returns a promise
-        setProducts(data);
-      } catch (e) {
-        setError(e);
-        console.log("Error loading information", e);
-      }
-    };
 
-    fetchProducts();
-  }, []);
 
   return (
     <>

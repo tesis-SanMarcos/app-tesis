@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Button } from "react-native-paper";
-import { COLORS } from "../../../shared/utils/constant";
+import { COLORS } from "../../../shared/utils/colors/constant.js"
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const WNumInput = ({ value, onUpdateQuantity }) => {

@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import ProductRepository from "../../domain/repositories/ProductRepository";
+import ProductServices from "../../domain/useCases/ProductServices.js"
+
 import { setAllProducts } from "../../data/Store/function";
 import WButon from "../../components/atoms/Buton/buton";
 import { Routes } from "../../shared/configuration/routes";
-import { COLORS } from "../../shared/utils/constant";
+import { COLORS } from "../../shared/utils/colors/constant.js"
 
 export default function App() {
   const navigateHook = useNavigation();
 
-  const productsCall = async () => {
-    const [dataProducts, error] = await ProductRepository.getProducts();
+  const productCall = async () => {
+    const [data, error] = await ProductServices.getProducts()
+    console.log("🚀 ~ productCall ~ data:", data)
     if (error) window.alert("Error en los productos");
-    if (dataProducts) setAllProducts(dataProducts);
+    if (data) {
+        setAllProducts(data); 
+    } 
   };
 
   return (
@@ -56,7 +60,7 @@ export default function App() {
             <WButon
               onPress={async () => {
                 navigateHook.navigate(Routes.Home);
-                await productsCall();
+                await productCall();
               }}
             >
               Ingresar

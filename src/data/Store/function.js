@@ -1,10 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Alert } from "react-native";
-import products from "../dataFake/products";
 
 // local storage
-const setAllProducts = async (proudctsLocal = []) => {
-  const json_products = JSON.stringify(proudctsLocal);
+const setAllProducts = async (productLocal = []) => {
+  const json_products = JSON.stringify(productLocal);
   try {
     await AsyncStorage.setItem("products", json_products);
     console.log("exitos al ingresar los productos");
@@ -29,7 +28,10 @@ const clearAllStore = async () => {
 const getAllProducts = async () => {
   try {
     const products = await AsyncStorage.getItem("products");
-    if (products !== null) return JSON.parse(products);
+    if (products !== null) {
+        const parsedProducts = JSON.parse(products);
+        return parsedProducts;
+    }
     return [];
   } catch (e) {
     console.error("error", error);

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Audio } from "expo-av";
-import { COLORS } from "../../../shared/utils/constant";
+import { COLORS } from "../../../shared/utils/colors/constant.js"
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { Routes } from "../../../shared/configuration/routes";
 
