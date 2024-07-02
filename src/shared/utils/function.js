@@ -29,7 +29,7 @@ export const combineProducts = (...productsArray) => {
     let uniqueIdCounter = 1;
     const uniqueProducts = products.map((product) => ({
       ...product,
-      id: uniqueIdCounter++, // Asignar ID único
+      id: uniqueIdCounter++,
     }));
   
     return uniqueProducts;
