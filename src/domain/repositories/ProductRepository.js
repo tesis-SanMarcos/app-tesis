@@ -1,4 +1,4 @@
-import { doGet } from "../../data/api/apiServices";
+import { doGet } from "../../shared/api/apiServices";
 import { Product } from "../../data/entities/product";
 import ProductAdapter from "../../shared/adapters/ProductAdapater";
 
