@@ -1,19 +1,15 @@
-import React, { useEffect  } from "react";
+import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { useNavigation , useRoute } from "@react-navigation/native";
+import { useNavigation  } from "@react-navigation/native";
 import WContainerCard from "../../components/hocs/container/containerHome";
 import { Card, FAB } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { globalStyles } from "../../shared/configuration/global-styles";
-import Products from "../Products";
 import { Routes } from "../../shared/configuration/routes";
 
 export default function Home() {
-  const routeHook = useRoute();
-  useEffect(() => {
-    const url = routeHook.name;
-  }, []);
+
 
   const NavigateHook = useNavigation();
   return (

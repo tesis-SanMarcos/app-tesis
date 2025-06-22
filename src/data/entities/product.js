@@ -7,7 +7,7 @@ export class Product {
     this.dataExpired = props.dataExpired;
     this.price = props.price;
     this.quantity = props.quantity;
-    this.description= props.description,
+    this.description= props.description;
     this.slug = props.slug;
     this.code = props.code;
   }
