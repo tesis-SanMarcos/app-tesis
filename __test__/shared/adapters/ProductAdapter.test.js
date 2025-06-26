@@ -15,7 +15,6 @@ describe("ProductAdapter", () => {
     };
 
     const result = ProductAdapter.Cookies(data);
-    console.log("🚀 ~ it ~ result:", result)
 
     expect(result).toMatchObject({
       id: 1,

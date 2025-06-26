@@ -1,0 +1,7 @@
+{
+ "rules": {
+    "sonarjs/no-duplicate-string": "warn",
+    "no-console": "warn",
+    "no-empty-function": "warn"
+  }
+}

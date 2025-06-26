@@ -13,7 +13,6 @@ export default function App() {
 
   const productCall = async () => {
     const [data, error] = await ProductServices.getProducts()
-    console.log("🚀 ~ productCall ~ data:", data)
     if (error) window.alert("Error en los productos");
     if (data) {
         setAllProducts(data); 

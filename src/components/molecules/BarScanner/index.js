@@ -34,7 +34,6 @@ const WBarScanner = () => {
 
   const askCameraPermission = async () => {
     const { status } = await BarCodeScanner.requestPermissionsAsync();
-    console.log(status);
     if (status === "granted") {
       setHasPermission(true);
     }

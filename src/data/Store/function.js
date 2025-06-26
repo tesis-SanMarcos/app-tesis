@@ -6,7 +6,6 @@ const setAllProducts = async (productLocal = []) => {
   const json_products = JSON.stringify(productLocal);
   try {
     await AsyncStorage.setItem("products", json_products);
-    console.log("exitos al ingresar los productos");
   } catch (error) {
     console.error("error", error);
     Alert.alert("Error al guardar los productos");
@@ -18,7 +17,6 @@ const setAllProducts = async (productLocal = []) => {
 const clearAllStore = async () => {
   try {
     await AsyncStorage.clear();
-    console.log("eliminado con exito");
   } catch (error) {
     console.error("error", error);
     Alert.alert("Problemas con el store");

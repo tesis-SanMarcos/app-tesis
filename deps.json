@@ -1,0 +1,71 @@
+{
+  "app/Home/index.js": [
+    "components/hocs/container/containerHome.js",
+    "shared/configuration/global-styles.js",
+    "shared/configuration/routes.js"
+  ],
+  "app/Products/constant.js": [],
+  "app/Products/index.js": [
+    "app/Products/constant.js",
+    "components/hocs/container/containerHome.js",
+    "components/molecules/Product/index.js",
+    "components/organism/ProductEmpty/ProductEmpty.js",
+    "data/Store/function.js",
+    "shared/configuration/global-styles.js",
+    "shared/configuration/routes.js",
+    "shared/utils/colors/constant.js",
+    "shared/utils/function.js"
+  ],
+  "app/login/index.js": [
+    "components/atoms/Buton/buton.js",
+    "data/Store/function.js",
+    "domain/useCases/ProductServices.js",
+    "shared/configuration/routes.js",
+    "shared/utils/colors/constant.js"
+  ],
+  "app/login/style.js": [],
+  "components/atoms/Buton/buton.js": [
+    "shared/utils/colors/constant.js"
+  ],
+  "components/hocs/container/containerHome.js": [],
+  "components/molecules/BarScanner/index.js": [
+    "shared/configuration/routes.js",
+    "shared/utils/colors/constant.js"
+  ],
+  "components/molecules/CustomDrawer/index.js": [
+    "data/Store/function.js",
+    "shared/configuration/routes.js",
+    "shared/utils/colors/constant.js"
+  ],
+  "components/molecules/NumericInput/index.js": [
+    "shared/utils/colors/constant.js"
+  ],
+  "components/molecules/Product/index.js": [
+    "components/molecules/NumericInput/index.js",
+    "shared/utils/colors/constant.js"
+  ],
+  "components/organism/ProductEmpty/ProductEmpty.js": [],
+  "components/organism/containers/containerCard.js": [],
+  "data/Store/function.js": [],
+  "data/entities/product.js": [],
+  "domain/repositories/ProductRepository.js": [
+    "shared/adapters/ProductAdapter.js",
+    "shared/api/apiServices.js"
+  ],
+  "domain/useCases/ProductServices.js": [
+    "domain/repositories/ProductRepository.js",
+    "shared/utils/function.js"
+  ],
+  "shared/adapters/ProductAdapter.js": [
+    "data/entities/product.js",
+    "shared/utils/entities/products.js"
+  ],
+  "shared/api/apiServices.js": [],
+  "shared/configuration/global-styles.js": [
+    "shared/utils/colors/constant.js"
+  ],
+  "shared/configuration/routes.js": [],
+  "shared/utils/colors/constant.js": [],
+  "shared/utils/entities/products.js": [],
+  "shared/utils/function.js": []
+}

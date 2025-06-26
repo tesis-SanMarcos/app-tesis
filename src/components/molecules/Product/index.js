@@ -22,10 +22,6 @@ const WProduct = ({
   const [quantity, setQuantity] = useState("1");
 
   const handleUpdateQuantity = (newQuantity) => {
-    console.log(
-      newQuantity,
-    );
-
     setQuantity(newQuantity);
     onUpdateProductQuantity(newQuantity); // Llamar a la función updateQuantity del padre con el ID del producto y la nueva cantidad
   };
