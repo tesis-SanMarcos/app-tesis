@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect , useState } from "react";
 import { Alert, StyleSheet, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Button, FAB } from "react-native-paper";
@@ -20,16 +20,20 @@ const Products = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [remove, setRemove] = useState(0);
   const { type, data: scannedData } = route.params || {}; // scanner
+  const [products, setProducts] = useState([]);
 
-  const products = useMemo( async () => {
+  useEffect(() => {
+  const fetchProducts = async () => {
     try {
-      let data = [];
-      data = await getAllProducts();
-      return data;
+      const data = await getAllProducts();
+      setProducts(data || []);
     } catch (e) {
       console.error("error al cargar la información");
+      setProducts([]);
     }
-  }, []);
+  };
+  fetchProducts();
+}, []);
   
   const handleRemoveCart = (productId) => {
     console.log("🚀 ~ handleRemoveCart ~ productId:", productId);
@@ -62,9 +66,7 @@ const Products = () => {
 
   useEffect(() => {
     let initial_quantity_product = 1;
-    const dataProducts = products ? products._j : [];
-    console.log("🚀 ~ useEffect ~ products:", products)
-    console.log("🚀 ~ useEffect ~ dataProducts:", dataProducts)
+    const dataProducts = products;
     if (Array.isArray(dataProducts)) {
       const filteredProducts = dataProducts.filter(
         (prd) => prd.code.toString() === scannedData,

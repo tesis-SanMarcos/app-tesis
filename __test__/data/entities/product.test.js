@@ -1,30 +1,52 @@
-import {Product} from "../../../src/data/entities/product"
+import { createProduct } from "../../../src/data/entities/product";
 
-describe("test in entities" , () => {
-    const productProps = {
-        id: 1,
-        title: 'Producto de prueba',
-        img: 'imagen.jpg',
-        dataExpired: '2024-12-31',
-        price: 10.99,
-        quantity: 100,
-        description: 'Descripción del producto',
-        slug: 'producto-de-prueba',
-        code: 'ABC123'
-      };
+describe("createProduct", () => {
+  it("debe crear un producto correctamente con todos los campos", () => {
+    const input = {
+      id: 1,
+      typeProduct: "galleta",
+      title: "Rellenitas",
+      img: "img.jpg",
+      dataExpired: "2025-01-01",
+      price: 10,
+      quantity: 5,
+      description: "Galleta dulce",
+      slug: "rellenitas",
+      code: "A123"
+    };
 
-    it("products",()=> {
-          let productTest = new Product(productProps)
+    const expected = {
+      id: 1,
+      typeProduct: "galleta",
+      name: "Rellenitas",
+      img: "img.jpg",
+      dataExpired: "2025-01-01",
+      price: 10,
+      quantity: 5,
+      description: "Galleta dulce",
+      slug: "rellenitas",
+      code: "A123"
+    };
 
+    expect(createProduct(input)).toEqual(expected);
+  });
 
-          expect(productTest.id).toBe(productProps.id);
-          expect(productTest.name).toBe(productProps.title);
-          expect(productTest.img).toBe(productProps.img)
-          expect(productTest.dataExpired).toBe(productProps.dataExpired)
-          expect(productTest.price).toBe(productProps.price)
-          expect(productTest.quantity).toBe(productProps.quantity)
-          expect(productTest.description).toBe(productProps.description)
-          expect(productTest.slug).toBe(productProps.slug)
-          expect(productTest.code).toBe(productProps.code)
-    })
-})
+  it("debe manejar campos opcionales faltantes", () => {
+    const input = {
+      id: 2,
+      typeProduct: "bebida",
+      title: "Inka Cola",
+      img: "inka.jpg",
+      dataExpired: "2026-01-01",
+      price: 5,
+      quantity: 10,
+      slug: "inka-cola",
+      code: "B456"
+      // description no está presente
+    };
+
+    const result = createProduct(input);
+    expect(result.description).toBeUndefined();
+    expect(result.name).toBe("Inka Cola");
+  });
+});

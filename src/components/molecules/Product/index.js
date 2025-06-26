@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import {
   Image,
@@ -23,7 +23,6 @@ const WProduct = ({
 
   const handleUpdateQuantity = (newQuantity) => {
     console.log(
-      "🚀 ~ handleUpdateQuantity ~ handleUpdateQuantity:",
       newQuantity,
     );
 
@@ -37,16 +36,7 @@ const WProduct = ({
         title={titleProduct}
         titleStyle={styles.title}
         subtitle={subtitle}
-        right={() => (
-          <TouchableOpacity onPress={onRemove}>
-            <Image
-              style={{ width: 30, height: 30 }}
-              source={{
-                uri: "https://cdn-icons-png.flaticon.com/512/3936/3936563.png",
-              }}
-            />
-          </TouchableOpacity>
-        )}
+        right={<RemoveButton onRemove={onRemove} />}
       />
       <Card.Cover
         style={{ backgroundColor: "white" }}
@@ -66,12 +56,22 @@ const WProduct = ({
 
 export default WProduct;
 
+const RemoveButton = ({ onRemove }) => (
+  <TouchableOpacity onPress={onRemove}>
+    <Image
+      style={{ width: 30, height: 30 }}
+      source={{
+        uri: "https://cdn-icons-png.flaticon.com/512/3936/3936563.png",
+      }}
+    />
+  </TouchableOpacity>
+);
+
 WProduct.defaultProps = {
   key : 1 ,
   titleProduct: "Rellenitas de Coco",
   subtitle: "Galleta",
   img: "https://munchpak.com/media/catalog/product/cache/04fcb38ef88b2143ed9aa346069c8a0e/g/a/galletas-coco.jpg",
-  trashIcon: "https://cdn-icons-png.flaticon.com/512/3936/3936563.pnssg",
   price: 15.5,
 };
 
@@ -80,11 +80,13 @@ WProduct.propTypes = {
   titleProduct: PropTypes.string,
   subtitle: PropTypes.string,
   img: PropTypes.string,
-  trashIcon: PropTypes.string,
   price: PropTypes.number,
-
   onRemove : PropTypes.func , 
   onUpdateProductQuantity : PropTypes.func
+};
+
+RemoveButton.propTypes = {
+  onRemove: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

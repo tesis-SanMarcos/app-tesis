@@ -1,6 +1,5 @@
 import { doGet } from "../../shared/api/apiServices";
-import { Product } from "../../data/entities/product";
-import ProductAdapter from "../../shared/adapters/ProductAdapater";
+import ProductAdapter from "../../shared/adapters/ProductAdapter";
 
 export default class ProductRepository {
   static async getDrinks() {
@@ -10,10 +9,9 @@ export default class ProductRepository {
     try {
       const dataResponse = await doGet(PRODUCTS);
       if (dataResponse.status === 200) {
-        const dataProduct = dataResponse.data.map((item) => {
-            const productEntity = new Product(item)   
-            return ProductAdapter.adaptDrinks(productEntity)
-        });
+        const dataProduct = dataResponse.data.map((item) => 
+            ProductAdapter.Drinks(item)
+        );
 
         return [dataProduct, error];
       }
@@ -28,10 +26,9 @@ export default class ProductRepository {
     try {
       const dataResponse = await doGet(PRODUCTS);
       if (dataResponse.status === 200) {
-        const dataProduct = dataResponse.data.map((item) => {
-            const productEntity = new Product(item)   
-            return ProductAdapter.adaptCookies(productEntity)
-        });
+        const dataProduct = dataResponse.data.map((item) =>
+            ProductAdapter.Cookies(item)
+        );
         return [dataProduct, error];
       }
     } catch (error) {
