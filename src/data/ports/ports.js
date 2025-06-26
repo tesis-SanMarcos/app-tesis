@@ -4,6 +4,6 @@ export const typeProducts = ( slug = "") => {
         "bebidas" : 1 ,
         "galletas" : 2 ,
     }
-    const slugLower = slug.toLowerCase(slug)
+    const slugLower = slug.toLowerCase()
     return VALUES[slugLower] || DEFAULT_VALUE;
 }

@@ -1,6 +1,6 @@
+import { typeProducts } from "../ports/ports";
 export function createProduct({
   id,
-  typeProduct,
   title,
   img,
   dataExpired,
@@ -12,7 +12,7 @@ export function createProduct({
 }) {
   return {
     id,
-    typeProduct,
+    typeProduct:typeProducts(slug),
     name: title,
     img,
     dataExpired,

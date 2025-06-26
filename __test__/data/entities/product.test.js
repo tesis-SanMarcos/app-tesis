@@ -1,52 +1,51 @@
 import { createProduct } from "../../../src/data/entities/product";
+import { typeProducts } from "../../../src/data/ports/ports";
 
 describe("createProduct", () => {
   it("debe crear un producto correctamente con todos los campos", () => {
     const input = {
       id: 1,
-      typeProduct: "galleta",
-      title: "Rellenitas",
+      title: "Galleta Oreo",
       img: "img.jpg",
       dataExpired: "2025-01-01",
       price: 10,
       quantity: 5,
       description: "Galleta dulce",
-      slug: "rellenitas",
+      slug: "galletas",
       code: "A123"
-    };
-
-    const expected = {
-      id: 1,
-      typeProduct: "galleta",
-      name: "Rellenitas",
-      img: "img.jpg",
-      dataExpired: "2025-01-01",
-      price: 10,
-      quantity: 5,
-      description: "Galleta dulce",
-      slug: "rellenitas",
-      code: "A123"
-    };
-
-    expect(createProduct(input)).toEqual(expected);
-  });
-
-  it("debe manejar campos opcionales faltantes", () => {
-    const input = {
-      id: 2,
-      typeProduct: "bebida",
-      title: "Inka Cola",
-      img: "inka.jpg",
-      dataExpired: "2026-01-01",
-      price: 5,
-      quantity: 10,
-      slug: "inka-cola",
-      code: "B456"
-      // description no está presente
     };
 
     const result = createProduct(input);
-    expect(result.description).toBeUndefined();
-    expect(result.name).toBe("Inka Cola");
+
+    expect(result).toEqual({
+      id: 1,
+      typeProduct: typeProducts("galletas"),
+      name: "Galleta Oreo",
+      img: "img.jpg",
+      dataExpired: "2025-01-01",
+      price: 10,
+      quantity: 5,
+      description: "Galleta dulce",
+      slug: "galletas",
+      code: "A123"
+    });
+  });
+
+  it("debe asignar typeProduct 0 si el slug no es válido", () => {
+    const input = {
+      id: 2,
+      title: "Producto X",
+      img: "img2.jpg",
+      dataExpired: "2026-01-01",
+      price: 20,
+      quantity: 2,
+      description: "Otro producto",
+      slug: "otro",
+      code: "B456"
+    };
+
+    const result = createProduct(input);
+
+    expect(result.typeProduct).toBe(0);
   });
 });
