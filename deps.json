@@ -1,71 +1,124 @@
 {
-  "app/Home/index.js": [
-    "components/hocs/container/containerHome.js",
-    "shared/configuration/global-styles.js",
-    "shared/configuration/routes.js"
+  "App.js": [
+    "src/app/Home/index.js",
+    "src/app/Products/index.js",
+    "src/app/login/index.js",
+    "src/components/molecules/BarScanner/index.js",
+    "src/components/molecules/CustomDrawer/index.js",
+    "src/shared/configuration/routes.js",
+    "src/shared/utils/colors/constant.js"
   ],
-  "app/Products/constant.js": [],
-  "app/Products/index.js": [
-    "app/Products/constant.js",
-    "components/hocs/container/containerHome.js",
-    "components/molecules/Product/index.js",
-    "components/organism/ProductEmpty/ProductEmpty.js",
-    "data/Store/function.js",
-    "shared/configuration/global-styles.js",
-    "shared/configuration/routes.js",
-    "shared/utils/colors/constant.js",
-    "shared/utils/function.js"
+  "__test__/app/Products/index.test.js": [],
+  "__test__/data/entities/product.test.js": [
+    "src/data/entities/product.js",
+    "src/data/ports/ports.js"
   ],
-  "app/login/index.js": [
-    "components/atoms/Buton/buton.js",
-    "data/Store/function.js",
-    "domain/useCases/ProductServices.js",
-    "shared/configuration/routes.js",
-    "shared/utils/colors/constant.js"
+  "__test__/data/ports/ports.test.js": [
+    "src/data/ports/ports.js"
   ],
-  "app/login/style.js": [],
-  "components/atoms/Buton/buton.js": [
-    "shared/utils/colors/constant.js"
+  "__test__/domain/repositories/ProductRepository.test.js": [
+    "src/domain/repositories/ProductRepository.js",
+    "src/shared/api/apiServices.js"
   ],
-  "components/hocs/container/containerHome.js": [],
-  "components/molecules/BarScanner/index.js": [
-    "shared/configuration/routes.js",
-    "shared/utils/colors/constant.js"
+  "__test__/domain/useCases/ProductServices.test.js": [
+    "src/domain/repositories/ProductRepository.js",
+    "src/domain/useCases/ProductServices.js",
+    "src/shared/utils/function.js"
   ],
-  "components/molecules/CustomDrawer/index.js": [
-    "data/Store/function.js",
-    "shared/configuration/routes.js",
-    "shared/utils/colors/constant.js"
+  "__test__/shared/api/apiServices.test.js": [
+    "src/shared/api/apiServices.js"
   ],
-  "components/molecules/NumericInput/index.js": [
-    "shared/utils/colors/constant.js"
+  "__test__/shared/configuration/global-styles.test.js": [
+    "src/shared/configuration/global-styles.js",
+    "src/shared/utils/colors/constant.js"
   ],
-  "components/molecules/Product/index.js": [
-    "components/molecules/NumericInput/index.js",
-    "shared/utils/colors/constant.js"
+  "__test__/shared/configuration/routes.test.js": [
+    "src/shared/configuration/routes.js"
   ],
-  "components/organism/ProductEmpty/ProductEmpty.js": [],
-  "components/organism/containers/containerCard.js": [],
-  "data/Store/function.js": [],
-  "data/entities/product.js": [],
-  "domain/repositories/ProductRepository.js": [
-    "shared/adapters/ProductAdapter.js",
-    "shared/api/apiServices.js"
+  "__test__/shared/util/constant.test.js": [
+    "src/shared/utils/colors/constant.js"
   ],
-  "domain/useCases/ProductServices.js": [
-    "domain/repositories/ProductRepository.js",
-    "shared/utils/function.js"
+  "__test__/shared/util/functions.test.js": [
+    "src/shared/utils/function.js"
   ],
-  "shared/adapters/ProductAdapter.js": [
-    "data/entities/product.js",
-    "shared/utils/entities/products.js"
+  "__test__/shared/util/utils.js": [],
+  "app.json": [],
+  "babel.config.js": [],
+  "coverage/lcov-report/block-navigation.js": [],
+  "coverage/lcov-report/prettify.js": [],
+  "coverage/lcov-report/sorter.js": [],
+  "enviroment.js": [],
+  "index.js": [
+    "App.js",
+    "app.json"
   ],
-  "shared/api/apiServices.js": [],
-  "shared/configuration/global-styles.js": [
-    "shared/utils/colors/constant.js"
+  "jest.config.js": [],
+  "jest.resolver.js": [],
+  "jest.setup.js": [],
+  "src/app/Home/index.js": [
+    "src/components/hocs/container/containerHome.js",
+    "src/shared/configuration/global-styles.js",
+    "src/shared/configuration/routes.js"
   ],
-  "shared/configuration/routes.js": [],
-  "shared/utils/colors/constant.js": [],
-  "shared/utils/entities/products.js": [],
-  "shared/utils/function.js": []
+  "src/app/Products/constant.js": [],
+  "src/app/Products/index.js": [
+    "src/app/Products/constant.js",
+    "src/components/hocs/container/containerHome.js",
+    "src/components/molecules/Product/index.js",
+    "src/components/organism/ProductEmpty/ProductEmpty.js",
+    "src/data/Store/function.js",
+    "src/shared/configuration/global-styles.js",
+    "src/shared/configuration/routes.js",
+    "src/shared/utils/colors/constant.js",
+    "src/shared/utils/function.js"
+  ],
+  "src/app/login/index.js": [
+    "src/components/atoms/Buton/buton.js",
+    "src/data/Store/function.js",
+    "src/domain/useCases/ProductServices.js",
+    "src/shared/configuration/routes.js",
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/app/login/style.js": [],
+  "src/components/atoms/Buton/buton.js": [
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/components/hocs/container/containerHome.js": [],
+  "src/components/molecules/BarScanner/index.js": [
+    "src/shared/configuration/routes.js",
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/components/molecules/CustomDrawer/index.js": [
+    "src/data/Store/function.js",
+    "src/shared/configuration/routes.js",
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/components/molecules/NumericInput/index.js": [
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/components/molecules/Product/index.js": [
+    "src/components/molecules/NumericInput/index.js",
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/components/organism/ProductEmpty/ProductEmpty.js": [],
+  "src/components/organism/containers/containerCard.js": [],
+  "src/data/Store/function.js": [],
+  "src/data/entities/product.js": [
+    "src/data/ports/ports.js"
+  ],
+  "src/data/ports/ports.js": [],
+  "src/domain/repositories/ProductRepository.js": [
+    "src/shared/api/apiServices.js"
+  ],
+  "src/domain/useCases/ProductServices.js": [
+    "src/domain/repositories/ProductRepository.js",
+    "src/shared/utils/function.js"
+  ],
+  "src/shared/api/apiServices.js": [],
+  "src/shared/configuration/global-styles.js": [
+    "src/shared/utils/colors/constant.js"
+  ],
+  "src/shared/configuration/routes.js": [],
+  "src/shared/utils/colors/constant.js": [],
+  "src/shared/utils/function.js": []
 }
